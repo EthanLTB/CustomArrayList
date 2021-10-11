@@ -2,9 +2,6 @@ package com.ethanbradley.assignment5;
 
 import java.util.Arrays;
 
-
-//import java.util.Iterator;
-
 public class CustomArrayList<T> implements CustomList<T> {
 	private final int DEFAULT_SIZE = 10;
 	private int currentSize = 0;
@@ -32,12 +29,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 		items = biggerArray;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
-	
-		return  (T) items[index];
+
+		return (T) items[index];
 	}
-
-
 
 }
