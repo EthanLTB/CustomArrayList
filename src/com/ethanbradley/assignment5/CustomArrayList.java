@@ -64,7 +64,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 	
 	public void shrinkArraySize() {
-		Object[] smallerArray = Arrays.copyOf(items, (currentSize / 2));
+		Object[] smallerArray = Arrays.copyOf(items, (currentSize));
 		items = smallerArray;
 	}
 
