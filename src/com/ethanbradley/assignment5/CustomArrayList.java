@@ -24,20 +24,16 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return currentSize;
 	}
 
-	public void doubleArraySize() {
-		Object[] biggerArray = Arrays.copyOf(items, (items.length * 2));
-		items = biggerArray;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
-
+		checkRangeForIndex(index);
 		return (T) items[index];
 	}
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
+		checkRangeForIndex(index);
 		if (currentSize == items.length) {
 			doubleArraySize();
 		}
@@ -52,20 +48,32 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
+		checkRangeForIndex(index);
 		if (currentSize == (items.length / 2)) {
 			shrinkArraySize();
 		}
-		items[index] = null;
+		T removedItem = (T) items[index];
 		for (int i = index; i < items.length - 1; i++) {
 			items[i] = items[i + 1];
 		}
 		currentSize--;
-		return (T) items;
+		return (T) removedItem;
 	}
 
 	public void shrinkArraySize() {
 		Object[] smallerArray = Arrays.copyOf(items, (currentSize));
 		items = smallerArray;
+	}
+
+	private void checkRangeForIndex(int index) {
+		if (index > currentSize) {
+			throw new IndexOutOfBoundsException();
+		}
+	}
+
+	public void doubleArraySize() {
+		Object[] biggerArray = Arrays.copyOf(items, (items.length * 2));
+		items = biggerArray;
 	}
 
 }

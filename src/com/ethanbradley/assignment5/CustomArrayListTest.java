@@ -291,4 +291,5 @@ class CustomArrayListTest {
 
 		assertEquals(testList.getSize(), 6);
 	}
+
 }
