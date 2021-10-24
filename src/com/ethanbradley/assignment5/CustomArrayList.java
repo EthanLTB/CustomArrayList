@@ -41,8 +41,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (currentSize == items.length) {
 			doubleArraySize();
 		}
-		for(int i = currentSize + 1; i > index; i--) {
-			items[i] = items[i-1];
+		for (int i = currentSize + 1; i > index; i--) {
+			items[i] = items[i - 1];
 		}
 		items[index] = item;
 		currentSize++;
@@ -52,17 +52,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
-		if(currentSize == (items.length / 2)){
+		if (currentSize == (items.length / 2)) {
 			shrinkArraySize();
 		}
 		items[index] = null;
-		for(int i = index; i < items.length - 1; i ++) {
+		for (int i = index; i < items.length - 1; i++) {
 			items[i] = items[i + 1];
 		}
 		currentSize--;
 		return (T) items;
 	}
-	
+
 	public void shrinkArraySize() {
 		Object[] smallerArray = Arrays.copyOf(items, (currentSize));
 		items = smallerArray;

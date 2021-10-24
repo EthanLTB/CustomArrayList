@@ -36,6 +36,7 @@ class CustomArrayListTest {
 		assertEquals(testList.get(12), "11");
 
 	}
+
 	@Test
 	void should_add_element_at_start() {
 		CustomList<String> testList = new CustomArrayList<>();
@@ -58,9 +59,9 @@ class CustomArrayListTest {
 		assertEquals(testList.get(10), "9");
 		assertEquals(testList.get(11), "10");
 		assertEquals(testList.get(12), "11");
-		
 
 	}
+
 	@Test
 	void should_add_element_at_end() {
 		CustomList<String> testList = new CustomArrayList<>();
@@ -79,7 +80,6 @@ class CustomArrayListTest {
 		assertEquals(testList.get(10), "10");
 		assertEquals(testList.get(11), "inserted String");
 		assertEquals(testList.get(12), "11");
-		
 
 	}
 
