@@ -25,7 +25,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	public void doubleArraySize() {
-		Object[] biggerArray = Arrays.copyOf(items, (currentSize * 2));
+		Object[] biggerArray = Arrays.copyOf(items, (items.length * 2));
 		items = biggerArray;
 	}
 
@@ -41,7 +41,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (currentSize == items.length) {
 			doubleArraySize();
 		}
-		for(int i = currentSize; i > index; i--) {
+		for(int i = currentSize + 1; i > index; i--) {
 			items[i] = items[i-1];
 		}
 		items[index] = item;

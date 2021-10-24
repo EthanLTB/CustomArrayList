@@ -36,6 +36,52 @@ class CustomArrayListTest {
 		assertEquals(testList.get(12), "11");
 
 	}
+	@Test
+	void should_add_element_at_start() {
+		CustomList<String> testList = new CustomArrayList<>();
+
+		for (int i = 0; i < 12; i++) {
+			testList.add(String.valueOf(i));
+		}
+
+		testList.add(0, "inserted String");
+		assertEquals(testList.get(0), "inserted String");
+		assertEquals(testList.get(1), "0");
+		assertEquals(testList.get(2), "1");
+		assertEquals(testList.get(3), "2");
+		assertEquals(testList.get(4), "3");
+		assertEquals(testList.get(5), "4");
+		assertEquals(testList.get(6), "5");
+		assertEquals(testList.get(7), "6");
+		assertEquals(testList.get(8), "7");
+		assertEquals(testList.get(9), "8");
+		assertEquals(testList.get(10), "9");
+		assertEquals(testList.get(11), "10");
+		assertEquals(testList.get(12), "11");
+		
+
+	}
+	@Test
+	void should_add_element_at_end() {
+		CustomList<String> testList = new CustomArrayList<>();
+
+		for (int i = 0; i < 12; i++) {
+			testList.add(String.valueOf(i));
+		}
+
+		testList.add(11, "inserted String");
+
+		assertEquals(testList.get(5), "5");
+		assertEquals(testList.get(6), "6");
+		assertEquals(testList.get(7), "7");
+		assertEquals(testList.get(8), "8");
+		assertEquals(testList.get(9), "9");
+		assertEquals(testList.get(10), "10");
+		assertEquals(testList.get(11), "inserted String");
+		assertEquals(testList.get(12), "11");
+		
+
+	}
 
 	@Test
 	void should_add_12_items_to_CustomArrayList() {
